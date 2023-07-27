@@ -67,10 +67,10 @@ export default function NavBar() {
                 <Link href={"categories/watches/applewatch"}>Apple watch</Link>
                 </li>
                 <li>
-                <Link href={"categories/watches/samsung"}>Samsung</Link>
+                <Link href={"categories/watches/samsungwatch"}>Samsung</Link>
                 </li>
                 <li>
-                <Link href={"categories/watches/google"}>Google</Link>
+                <Link href={"categories/watches/googlewatch"}>Google</Link>
                 </li>
                 
               </ul>
@@ -86,13 +86,13 @@ export default function NavBar() {
                 className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <li>
-                <Link href={"categories/accessories/apple"}>Apple</Link>
+                <Link href={"categories/accessories/appleaccessories"}>Apple</Link>
                 </li>
                 <li>
-                <Link href={"categories/accessories/samsung"}>Samsung</Link>
+                <Link href={"categories/accessories/samsungaccessories"}>Samsung</Link>
                 </li>
                 <li>
-                <Link href={"categories/accessories/google"}>Google</Link>
+                <Link href={"categories/accessories/googleaccessories"}>Google</Link>
                 </li>
               </ul>
             </div>

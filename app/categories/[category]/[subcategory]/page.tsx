@@ -5,6 +5,7 @@ import prisma from "@/lib/db";
 const getCategories = async () => {
   const res = await prisma.productCategory.findMany({
     include: {
+      product: true,
       currentCategory: {
         include: {
         
