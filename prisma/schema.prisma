@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode      = "foreignKeys"
+}
+
+model Product {
+  id              Int             @id @default(autoincrement())
+  categoryID      Int
+  name            String
+  description     String
+  imageUrl        String
+  productCategory ProductCategory @relation(fields: [categoryID], references: [id])
+  productItem     ProductItem[]
+}
+
+model ProductItem {
+  id                   Int                    @id @default(autoincrement())
+  productID            Int
+  stock                Int
+  sku                  String                 @default(uuid())
+  imageUrl             Json
+  price                String
+  ProductConfiguration ProductConfiguration[]
+  product              Product                @relation(fields: [productID], references: [id])
+}
+
+model ProductCategory {
+  id               Int               @id @default(autoincrement())
+  parentCategoryID Int?
+  categoryName     String
+  product          Product[]
+  category         ProductCategory?  @relation("TypeOfPhone", fields: [parentCategoryID], references: [id])
+  currentCategory  ProductCategory[] @relation("TypeOfPhone")
+  ProductVariant   ProductVariant[]
+}
+
+model ProductVariantOption {
+  id                   Int                    @id @default(autoincrement())
+  variantID            Int
+  value                Json
+  ProductConfiguration ProductConfiguration[]
+  ProduectVariant      ProductVariant         @relation(fields: [variantID], references: [id])
+}
+
+model ProductVariant {
+  id                   Int                    @id @default(autoincrement())
+  name                 String
+  categoryID           Int?
+  ProductCategory      ProductCategory?       @relation(fields: [categoryID], references: [id])
+  ProductVariantOption ProductVariantOption[]
+}
+
+model ProductConfiguration {
+  id                   Int                   @id @default(autoincrement())
+  productItemID        Int?
+  variantOptionID      Int?
+  productItem          ProductItem?          @relation(fields: [productItemID], references: [id])
+  ProductVariantOption ProductVariantOption? @relation(fields: [variantOptionID], references: [id])
+}
+
+enum Role {
+  ADMIN
+}
