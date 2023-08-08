@@ -45,7 +45,7 @@ model ProductVariantOption {
   variantID            Int
   value                Json
   ProductConfiguration ProductConfiguration[]
-  ProduectVariant      ProductVariant         @relation(fields: [variantID], references: [id])
+  ProductVariant      ProductVariant         @relation(fields: [variantID], references: [id])
 }
 
 model ProductVariant {

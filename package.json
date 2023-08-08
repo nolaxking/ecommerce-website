@@ -5,7 +5,7 @@
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
-   "scripts": {
+  "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.17.3",
-    "@prisma/client": "^5.0.0",
+    "@prisma/client": "^5.1.1",
     "@stripe/react-stripe-js": "^2.1.1",
     "@stripe/stripe-js": "^1.54.1",
     "@types/node": "20.0.0",
@@ -29,10 +29,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "use-shopping-cart": "^3.1.8"
   },
   "devDependencies": {
     "daisyui": "^3.1.6",
-    "prisma": "^4.16.2"
+    "prisma": "^5.1.1"
   }
 }
